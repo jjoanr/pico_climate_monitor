@@ -17,6 +17,7 @@ include_directories(include)
 
 add_executable(main
 	src/main.c
+	src/dht11.c
 	)
 
 #Pull in pico_stdlib
