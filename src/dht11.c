@@ -5,7 +5,7 @@
 
 unsigned int dht11_gpio;
 
-void init_gpio(uint gpio) {
+void init_dht11(uint gpio) {
 	dht11_gpio = gpio;
 	gpio_init(dht11_gpio);
 	gpio_set_dir(dht11_gpio, GPIO_OUT);
@@ -73,4 +73,11 @@ void read_data(uint8_t data[5]) {
 			}
 		}
 	}
+}
+
+bool verify_checksum(uint8_t data[5]) {
+	if (data[4] == ((data[0] + data[1] + data[2] + data[3]) & 0xFF)) {
+		return true;
+	}
+	return false;
 }

@@ -1,5 +1,5 @@
 /**
- * @file include/dht11.h
+ * @file dht11.h
  *
  * @brief Header file for the dht11 sensor driver.
  *
@@ -17,7 +17,7 @@
  * @brief Initializes the gpio which will be used for communication with the sensor.
  * @param uint ID for the gpio to be used for the communication.
  */
-void init_gpio(unsigned int gpio);
+void init_dht11(unsigned int gpio);
 
 /**
  * @brief Sends start signal to the sensor.
@@ -35,5 +35,12 @@ bool check_response();
  * @param[out] data Array of 5 bytes to store the sensor response.
  */
 void read_data(uint8_t data[5]);
+
+/**
+ * @brief Verifies checksum of the received data.
+ * @param data Array of 5 bytes received from the sensor.
+ * @return bool Returns true if the checksum is correct, false otherwise.
+ */
+bool verify_checksum(uint8_t data[5]);
 
 #endif /* DHT11_H */
