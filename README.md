@@ -26,3 +26,6 @@ Climate monitor using a raspberry pi pico, which gathers temperature and humidit
 `make`
 6. Finally, upload the main.uf2 into the pico. I used *picotool* as follows:  
 `picotool load main.uf2`
+
+![Built project](./img/result.jpeg)
+
